@@ -140,7 +140,7 @@ const fetchReply = async (message) => {
         messageQueue.push(data.content)
         processMessageQueue()
 
-        scrollChatWindow()
+        // scrollChatWindow()
       },
     })
   } catch (err) {
@@ -169,7 +169,7 @@ const send = (message) => {
     props.conversation.messages.push({ message: message.content, message_type: message.message_type })
   }
   fetchReply(message)
-  scrollChatWindow()
+  // scrollChatWindow()
 }
 const stop = () => {
   abortFetch()
