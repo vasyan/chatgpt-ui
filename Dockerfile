@@ -11,8 +11,8 @@ FROM node:18-alpine3.16 as builder
 
 WORKDIR /app
 
-COPY --from=node_deps /app/node_modules .
-COPY --from=node_deps /app/package.json .
+COPY --from=node_deps /app/node_modules ./node_modules
+COPY --from=node_deps /app/package.json ./node_modules
 COPY . .
 
 RUN npm run build
