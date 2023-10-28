@@ -25,20 +25,9 @@ export default defineNuxtConfig({
         'highlight.js/styles/panda-syntax-dark.css',
     ],
     modules: [
-        '@kevinmarrec/nuxt-pwa',
         '@nuxtjs/color-mode',
         '@nuxtjs/i18n'
     ],
-    pwa: {
-        manifest: {
-            name: appName,
-            short_name: appName,
-            description: 'A ChatGPT web Client'
-        },
-        workbox: {
-            enabled: process.env.DEBUT_PWA === 'true',
-        }
-    },
     i18n: {
         strategy: 'no_prefix',
         locales: [

@@ -10,7 +10,6 @@
     "docs:build": "vuepress build docs"
   },
   "devDependencies": {
-    "@kevinmarrec/nuxt-pwa": "^0.17.0",
     "@nuxt/devtools": "^0.4.0",
     "@nuxtjs/color-mode": "^3.2.0",
     "@nuxtjs/i18n": "^8.0.0-beta.9",
