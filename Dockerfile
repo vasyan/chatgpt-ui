@@ -2,9 +2,9 @@ FROM node:18-alpine3.16 as node_deps
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package.json ./
 
-RUN yarn install
+RUN npm install
 
 
 FROM node:18-alpine3.16 as builder
@@ -15,7 +15,7 @@ COPY --from=node_deps /app/node_modules .
 COPY --from=node_deps /app/package.json .
 COPY . .
 
-RUN yarn build
+RUN npm run build
 
 
 FROM node:18-alpine3.16
