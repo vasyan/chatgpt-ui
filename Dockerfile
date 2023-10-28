@@ -1,11 +1,18 @@
-FROM node:18-alpine3.16 as builder
+FROM node:18-alpine3.16 as node_deps
 
 WORKDIR /app
 
 COPY package.json yarn.lock ./
 
-RUN yarn install && yarn cache clean
+RUN yarn install
 
+
+FROM node:18-alpine3.16 as builder
+
+WORKDIR /app
+
+COPY --from=builder /app/node_modules .
+COPY --from=builder /app/package.json .
 COPY . .
 
 RUN yarn build
